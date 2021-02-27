@@ -1,0 +1,6 @@
+<div class="row m-0 mb-2">
+  <button class="btn-primary btn mr-2" [disabled]="mLoading" (click)="syncOrders(mCurrentIndex)">Start Sync</button>
+  <button class="btn-secondary btn mr-2" [disabled]="!mLoading" (click)="mPause = true">Pause</button>
+</div>
+<p><ngb-progressbar [showValue]="true" type="info" [value]="mCurrentIndex" [max]="mOrders.length"
+  [striped]="true" [animated]="mLoading" [height]="'20px'"></ngb-progressbar></p>

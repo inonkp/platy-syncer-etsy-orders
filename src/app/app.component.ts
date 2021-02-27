@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'platy-syner-etsy-orders';
+  mActiveId = 'import';
+
+  test(e){
+    console.log(e)
+  }
 }

@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-3">
+    <ul ngbNav #nav="ngbNav"  [(activeId)]="mActiveId"  class="list-group"  [destroyOnHide]="false">
+      <li [ngbNavItem]="'today'">
+        <a ngbNavLink class="list-group-item list-group-item-action">
+          Today's Orders
+        </a>
+        <ng-template ngbNavContent>
+          <app-orders-importer [range-title]="'last 24 hours'"></app-orders-importer>
+        </ng-template>
+      </li>
+      <li [ngbNavItem]="'week'">
+        <a ngbNavLink class="list-group-item list-group-item-action">
+          This Week
+        </a>
+        <ng-template ngbNavContent>
+          <app-orders-importer [range-title]="'last week'"></app-orders-importer>
+        </ng-template>
+      </li>
+      <li [ngbNavItem]="'month'">
+        <a ngbNavLink class="list-group-item list-group-item-action">
+          This Month
+        </a>
+        <ng-template ngbNavContent>
+          <app-orders-importer [range-title]="'last month'"></app-orders-importer>
+        </ng-template>
+      </li>
+      <li [ngbNavItem]="'custom'">
+        <a ngbNavLink class="list-group-item list-group-item-action">
+          Custom Range
+        </a>
+        <ng-template ngbNavContent>
+          <app-orders-importer [range-title]="'custom range'" [custom-range]="true"></app-orders-importer>
+        </ng-template>
+      </li>
+    </ul>
+  </div>
+  <div class="col-9">
+    <div [ngbNavOutlet]="nav"></div>
+  </div>
+</div>

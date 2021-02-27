@@ -1,0 +1,19 @@
+
+<p>Import orders from {{mRangeTitle}}</p>
+<div *ngIf="mCustomRange">
+  <ngb-datepicker >
+  </ngb-datepicker>
+</div>
+<div class="row m-0 mb-2">
+  <button class="btn-primary btn mr-2" [disabled]="mLoading" (click)="getOrders(0,0)">{{mStartButtonText}}</button>
+  <platy-spinner [spin]="mLoading" [errors]="mErrors$ | async"></platy-spinner>
+  <p class="ml-2" *ngIf="mLoading">{{mOrders.length > 0 ? "Fetched " + mOrders.length : "Fetching"}} Orders</p>
+</div>
+<div *ngIf="!mLoading && mOrders.length > 0">
+  <h5>{{mOrders.length}} Orders ready</h5>
+  <app-orders-progress [orders]="mOrders"></app-orders-progress>
+</div>
+
+
+
+
